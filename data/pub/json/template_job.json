@@ -1,0 +1,10 @@
+{
+  "pkiId" : "",
+  "caId" : "",
+  "profileId" : "",
+  "requestData" : {},
+  "generateKeys" : false,
+  "pkcs10reqs" : [ ],
+  "publicKeys" : [ ]
+  "data" : { }
+}

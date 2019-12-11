@@ -1,0 +1,27 @@
+{
+  "id" : "ocf",
+  "name" : "Open Connectivity Foundation",
+  "description" : "This PKI is used to test the functionalities of OCF devices.",
+  "logoUrl" : "",
+  "enabledPkis" : [],
+  "address" : {
+    "street" : "",
+    "state" : "",
+    "region" : "",
+    "country" : "",
+    "zip" : ""
+  },
+  "contacts" : {
+    "fax" : "",
+    "phone" : "",
+    "email" : ""
+  },
+  "users" : [
+    {
+      "id" : "madwolf",
+      "pwd" : "pollo",
+      "email" : "m.pala@cablelabs.com",
+      "isAdmin" : true
+    }
+  ]
+}

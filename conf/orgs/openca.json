@@ -1,0 +1,33 @@
+{
+  "id" : "openca",
+  "name" : "OpenCA Labs PKI",
+  "description" : "This PKI is for testing purposes only",
+  "enabledPkis" : [ "test" ],
+  "logoUrl" : "",
+  "address" : {
+    "street" : "",
+    "state" : "",
+    "region" : "",
+    "country" : "",
+    "zip" : ""
+  },
+  "contacts" : {
+    "fax" : "",
+    "phone" : "",
+    "email" : ""
+  },
+  "users" : [
+    { 
+      "id" : "madwolf",
+      "pwd" : "pippo",
+      "email" : "m.pala@cablelabs.com",
+      "isAdmin" : true
+    },
+    {
+      "id" : "mpala",
+      "pwd" : "pippo",
+      "email" : "massimiliano.pala@gmail.com",
+      "isAdmin" : false
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id" : "admin",
+  "name" : "Admin Organization",
+  "description" : "This Organization is used to manage the TestPKI Environment",
+  "logoUrl" : "",
+  "isAdminOrg" : true,
+  "enabledPkis" : [],
+  "address" : {
+    "street" : "",
+    "state" : "",
+    "region" : "",
+    "country" : "",
+    "zip" : ""
+  },
+  "contacts" : {
+    "fax" : "",
+    "phone" : "",
+    "email" : ""
+  },
+  "users" : [
+    { 
+      "id" : "madwolf",
+      "pwd" : "pippo",
+      "email" : "m.pala@cablelabs.com",
+      "isGlobalAdmin" : true,
+      "isAdmin" : true
+    },
+    {
+      "id" : "mpala",
+      "pwd" : "pippo",
+      "email" : "massimiliano.pala@gmail.com",
+      "isGlobalAdmin" : false,
+      "isAdmin" : false
+    }
+  ]
+}

@@ -1,0 +1,247 @@
+{ 
+    "id" : "test",
+    "description" : "Generic Test PKI",
+    "calist" : [ 
+        {
+            "id" : "RSARoot01",
+            "issuer" : null,
+            "description" : "RSA Root",
+            "isIssuingCA" : false,
+            "policyOID" : "",
+            "policyDocumentUrl" : "",
+            "key" : {
+                "algorithm" : {
+                    "name" : "ECC",
+                    "description" : "Elliptic Curve Crypto",
+                    "params" : "secp521r1"
+                },
+                "cryptoProvider" : {
+                    "name" : "openssl",
+                    "type" : "software",
+                    "libraryOptions" : null,
+                    "cliTool" : ""
+                },
+                "filename" : "",
+                "password" : ""
+            },
+            "certificate" : {
+                "serialNumber" : "",
+                "subject" : "",
+                "issuer" : "",
+                "notBefore" : "",
+                "notAfter" : "",
+                "fingerprint" : "",
+                "filename" : ""
+            },
+            "crypto" : {
+                "cli" : "",
+                "configfile" : "",
+                "serialNumberFile" : "",
+                "crlNumberFile" : "",
+                "indexFile" : "",
+                "certOutDir" : "",
+                "crlOutDir" : ""
+            },
+            "services" : {
+                "crl" : true,
+                "ocsp" : true,
+                "est" : false
+            }
+        },
+        {
+            "id" : "ECCRoot01",
+            "issuer" : null,
+            "description" : "ECC Root",
+            "isIssuingCA" : false,
+            "policyOID" : "",
+            "policyDocumentUrl" : "",
+            "key" : {
+                "algorithm" : {
+                    "name" : "RSA",
+                    "description" : "Elliptic Curve Crypto",
+                    "params" : "4096"
+                },
+                "cryptoProvider" : {
+                    "name" : "openssl",
+                    "type" : "software",
+                    "libraryOptions" : null
+                },
+                "filename" : "",
+                "password" : ""
+            },
+            "certificate" : {
+                "serialNumber" : "",
+                "subject" : "",
+                "issuer" : "",
+                "notBefore" : "",
+                "notAfter" : "",
+                "fingerprint" : "",
+                "filename" : ""
+            },
+            "crypto" : {
+                "cli" : "",
+                "configfile" : "",
+                "serialNumberFile" : "",
+                "crlNumberFile" : "",
+                "indexFile" : "",
+                "certOutDir" : "",
+                "crlOutDir" : ""
+            },
+            "services" : {
+                "crl" : true,
+                "ocsp" : false,
+                "est" : false
+            }
+        },
+        {
+            "id" : "ica01",
+            "issuer" : "ECCRoot01",
+            "description" : "This CA is a SubCA from ECCRoot01",
+            "isIssuingCA" : true,
+            "policyOID" : "",
+            "policyDocumentUrl" : "",
+            "profiles" : [
+                {
+                    "id" : "OCSP Responder",
+                    "oid" : "1.2.3.4.5.6",
+                    "description" : "Certificate Profile for OCSP Responder",
+                    "validity" : {
+                        "maxValidity" : 365,
+                        "notAfter" : null,
+                        "notBefore" : null
+                    },
+                    "key" : {
+                        "algorithms" : [
+                            {
+                                "name" : "ECC",
+                                "description" : "Elliptic Curve Cryptography",
+                                "params" : [ 
+                                    {
+                                        "name" : "P-256",
+                                        "description" : "NIST 256 Security Bits Curve",
+                                        "value" : "secp256r1"
+                                    },
+                                    {
+                                        "name" : "P-384",
+                                        "description" : "NIST 384 Securty Bits Curve",
+                                        "value" : "secp384r1"
+                                    },
+                                    {
+                                        "name" : "P-521",
+                                        "description" : "NIST 521 Security Bits Curve",
+                                        "value" : "secp521r1" 
+                                    }
+                                ],
+                                "sighash" : [ "sha1", "sha256", "sha384", "sha512", "ripemd160" ]
+                            },
+                            {
+                                "name" : "RSA",
+                                "description" : "RSA Algorithm",
+                                "params" : [ 
+                                    {
+                                        "name" : "Good",
+                                        "description" : "2048 Bits",
+                                        "value" : 2048
+                                    },
+                                    {
+                                        "name" : "Better",
+                                        "description" : "3072 Bits",
+                                        "value" :  3072
+                                    },
+                                    {
+                                        "name" : "Strong",
+                                        "description" : "4096 Bits",
+                                        "value" : 4096 
+                                    },
+                                    {
+                                        "name" : "Best",
+                                        "description" : "8192 Bits",
+                                        "value" : 8192 
+                                    }
+                                ],
+                                "sighash" : [ "sha1", "sha256", "sha384", "sha512", "ripemd160" ]
+                            }
+                        ]
+                    },
+                    "subject" : [
+                        {
+                            "name" : "CN",
+                            "description" : "Common Name",
+                            "isRequired" : false,
+                            "match" : "RegEx For Matching",
+                            "isUserProvided" : true,
+                            "value" : null
+                        },
+                        {
+                            "name" : "O",
+                            "description" : "Name of the Organization",
+                            "isRequired" : true,
+                            "isUserProvided" : false,
+                            "value" : "Fixed Org Value"
+                        }
+                    ],
+                    "extensions" : [ 
+                        {
+                            "id" : "basicConstraints",
+                            "isCritical" : true,
+                            "isRequired" : true,
+                            "isUserProvided" : false,
+                            "tag" : null,
+                            "value" : "CA:FALSE,pathLen=0"
+                        },
+                        {
+                            "id" : "extendedKeyUsage",
+                            "isCritical" : false,
+                            "isRequired" : true,
+                            "isUserProvided" : false,
+                            "tag" : null,
+                            "value" : "serverAuth,clientAuth"
+                        },
+                        {
+                            "id" : "subjectKeyIdentifier",
+                            "isCritical" : false,
+                            "isRequired" : true,
+                            "isUserProvided" : false,
+                            "tag" : null,
+                            "value" : "keyid"
+                        }
+                    ]
+                }
+            ],
+            "key" : {
+                "library" : "software",
+                "libraryOptions" : null,
+                "filename" : "",
+                "password" : "",
+                "algorithm" : "",
+                "params" : [ ]
+            },
+            "certificate" : {
+                "filename" : "",
+                "fingerprint" : "",
+                "serialNumber" : "",
+                "subject" : "",
+                "issuer" : "",
+                "notBefore" : "",
+                "notAfter" : ""
+            },
+            "crypto" : {
+                "cli" : "",
+                "configfile" : "",
+                "serialNumberFile" : "",
+                "crlNumberFile" : "",
+                "indexFile" : "",
+                "certOutDir" : "",
+                "crlOutDir" : ""
+            },
+            "services" : {
+                "crl" : true,
+                "ocsp" : false,
+                "est" : false
+            }
+        }
+    ],
+
+    "roots" : [ "RSARoot01", "ECCRoot01" ],
+    "available" : [ "ica01" ]
+}

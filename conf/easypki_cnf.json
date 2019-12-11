@@ -1,0 +1,59 @@
+{
+  "baseUrl" : "https://www.openca.org",
+  "listen" : {
+    "host" : "127.0.0.1",
+    "port" : 2001,
+    "pathPrefix" : "/1.0"
+  },
+  "cookies" : {
+    "domain" : ".openca.org",
+    "maxAge" : 1800000,
+    "maxUpdateAge" : 3600000,
+    "maxInactivity" : "interval '1 hour'",
+    "maxLifespan" : "interval '48 hours'",
+    "name" : "epki" 
+  },
+  "adminCreds" : {
+    "username" : "admin",
+    "password" : "O9UQg3XjMH9M3ywWwqT9WFjQSZ/qU5FoSaapqp+zkaU="
+  },
+  "seeds" : {
+    "keySeed" : "%$0rgjERt ]-0K$'i943KOtq]ijiewri;44",
+    "hmacSeed" : "SDFr0otq589!EFKPL34PDS\"F{#Q}DF{#$@",
+    "sessionSeed" : "QWERPfq034854><EP{RTLW{q2;}O|"
+  },
+  "urls" : {
+    "app"       : "/app",
+    "api"       : "/api",
+    "dashboard" : "/api/data/u/dashboard.min",
+    "profile"   : "/api/data/u/profile",
+    "appAdmin"  : "/api/data/u/appadmin",
+    "companyAdmin" : "/api/data/u/companyadmin",
+    "userAdmin" : "/api/data/u/useradmin"
+  },
+  "data" : {
+    "users" : {
+      "type" : "DB",
+      "params" : {
+        "driver" : null,
+        "name" : null,
+        "user" : null,
+        "pwd" : null,
+        "path" : "conf/users.db"
+      }
+    },
+    "organizations" : {
+      "type" : "json",
+      "params" : {
+        "path" : "conf/organizations.sqlite3",
+        "conf" : "ORGANIZATIONS"
+      }
+    },
+    "pkis" : {
+      "type" : "sqlite3",
+      "params" : {
+        "path" : "conf/pkis.sqlite3"
+      }
+    }
+  }
+}
