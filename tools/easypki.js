@@ -17,7 +17,7 @@ var ctx = {};
 var req = require("request");
 
 // General Vars
-var host = "http://localhost:2001/1.0";
+var host = "http://localhost:2561/1.0";
 
 var reqOptions = {
   "recurse" : true,

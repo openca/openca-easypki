@@ -2,7 +2,7 @@
   "baseUrl" : "https://www.openca.org",
   "listen" : {
     "host" : "127.0.0.1",
-    "port" : 2001,
+    "port" : 2561,
     "pathPrefix" : "/1.0"
   },
   "cookies" : {
