@@ -77,7 +77,7 @@ handlers.push(
     // (d) Generates a new loginToken
     // (e) Encrypts the loginToken and saves it in the
     //     response via the appropriate login cookie
-    Auth.checkCredentials(user, creds)
+    OCAauth.checkCredentials(user, creds)
       // We need to remove existing session and create a new one in the
       // database (to prevent account sharing). We do allow to have a
       // mobile and non-mobile access at the same time (usability)

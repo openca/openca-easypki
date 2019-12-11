@@ -17,7 +17,7 @@ var ctx = {};
 var req = require("request");
 
 // General Vars
-var host = "https://www.openca.org";
+var host = "http://localhost:2001/1.0";
 
 var reqOptions = {
   "recurse" : true,
@@ -46,6 +46,7 @@ banner();
 // Let's Parse the arguments
 prg.version(VERSION)
    .option('-a, --action <action>', 'Command (one of "add", "del", "mod", "list")')
+   .option('-o, --org <organization>', 'Target Organization')
    .option('-t, --target <target>', 'Target to operate on (i.e., "org", "pki", "ca", "user", "job")')
    .option('-u, --username <username>', 'Login with the specified username')
    .option('-p, --password [password]', 'Password for logging into the system')
@@ -80,6 +81,7 @@ switch (prg.target) {
 
       case "login" : {
 
+        console.log("org '%s' selected", prg.org);
         console.log("action '%s' selected", prg.action);
         console.log("using '%s':'%s' as credentials.", prg.username, prg.password);
 
@@ -96,7 +98,7 @@ switch (prg.target) {
         };
 
         // Where to send the JSON
-        var path = host + "/api/u/login";
+        var path = host + "/u/login/" + prg.org;
 
         // OCAQuery("post", path, { json: data }, (err, res, body) => {
         OCAQuery("post", path, { json: data }, (msg, err, res) => {
@@ -109,7 +111,7 @@ switch (prg.target) {
 
         console.log("action '%s' selected", prg.action);
 
-        var path = host + "/api/u/logout";
+        var path = host + "/u/logout";
 
         // request.post( path, { json: { } }, (err, res, body) => {
         OCAQuery( "get", path, { }, (msg, err, res) => {
@@ -355,7 +357,7 @@ function OCAQuery( method, url, options, callback ) {
     // Save the info into the context (ctx) global var
     ctx.err = err;
     ctx.res = res;
-    ctx.msg = resMsg;
+    ctx.msg = msg;
 
     return __callback(msg, err, res);
   });
